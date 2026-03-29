@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 import './App.css'
+import Quizzes from './Features/Quizzes'
 
 function App() {
   const[quizzes, setQuizzes]= useState([
@@ -28,12 +29,12 @@ function App() {
 
   const quizGenerator = (numQuestions= 10) =>{
       const shuffled = [...quizzes].sort(()=> Math.random() -0.5)
-      setQuizzes(shuffled.slice(0, numQuestions))
-  }
+      setQuizzes(shuffled.slice(0, numQuestions));
+  };
 
   return (
     <div>
-        
+        <Quizzes quizzes={quizzes} onShuffle = {quizGenerator}/>
     </div>
   )
 }
