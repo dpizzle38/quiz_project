@@ -23,4 +23,4 @@ const Result = ({quizzes, answers}) => {
   )
 }
 
-export default Result
+export default Result;

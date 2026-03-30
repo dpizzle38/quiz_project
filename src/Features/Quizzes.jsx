@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Question from './Question';
-import Result from 
+import Result from './Result';
 
 const Quizzes = ({quizzes, onShuffle}) => {
     const[answers, setAnswers] = useState([]);
