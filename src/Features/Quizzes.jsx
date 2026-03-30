@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Question from './Question';
-
-
+import Result from 
 
 const Quizzes = ({quizzes, onShuffle}) => {
     const[answers, setAnswers] = useState([]);
@@ -17,7 +16,7 @@ const Quizzes = ({quizzes, onShuffle}) => {
     const increment = () =>{
         setCurrentIndex(prev => prev + 1)
     };
-    {currentIndex}
+  
     const decrement = () => {
         setCurrentIndex(prev=>prev - 1)
     };
