@@ -31,14 +31,14 @@ const Quizzes = ({quizzes, onShuffle}) => {
   return (
     <div>
 
-        <Question question={quizzes[currentIndex]} onAnswer ={handleAnswer}/>
-        {currentIndex < quizzes.length - 1 && 
-        <button onClick ={()=> increment()}>Next</button>}
+        <Question question={quizzes[currentIndex]} onAnswer ={handleAnswer} selectedAnswer={answers[currentIndex]}/>
         <button disabled = {currentIndex === 0} onClick={()=>decrement()}>Prev</button>
+        {currentIndex < quizzes.length - 1 && 
+        <button onClick ={()=> increment()} disabled={answers[currentIndex]=== undefined}>Next</button>}
+        {currentIndex === quizzes.length - 1 && <button onClick={submit}>Submit</button>}
         <button onClick={()=>onShuffle()}>Shuffle</button>
-        <button onClick={()=>submit()}>Submit</button>
     </div>
   )
 }
 
-export default Quizzes
+export default Quizzes;
