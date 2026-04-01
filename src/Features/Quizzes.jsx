@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Question from './Question';
 import Result from './Result';
 
@@ -25,6 +25,11 @@ const Quizzes = ({quizzes, onShuffle}) => {
         setShowResult(true)
     }
 
+    useEffect(()=>{
+
+      onShuffle();
+    },[]);
+
     if(showResult){
         return <Result quizzes={quizzes} answers={answers}/>    
     }
@@ -35,8 +40,7 @@ const Quizzes = ({quizzes, onShuffle}) => {
         <button disabled = {currentIndex === 0} onClick={()=>decrement()}>Prev</button>
         {currentIndex < quizzes.length - 1 && 
         <button onClick ={()=> increment()} disabled={answers[currentIndex]=== undefined}>Next</button>}
-        {currentIndex === quizzes.length - 1 && <button onClick={submit}>Submit</button>}
-        <button onClick={()=>onShuffle()}>Shuffle</button>
+        {currentIndex === quizzes.length - 1 && <button onClick={submit} disabled={answers[currentIndex]===undefined}>Submit</button>}
     </div>
   )
 }
