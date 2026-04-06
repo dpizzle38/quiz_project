@@ -4,6 +4,7 @@ import './App.css'
 import Quizzes from './Features/Quizzes'
 
 function App() {
+  const[darkmode, setDarkmode] = useState(false);
   const[quizzes, setQuizzes]= useState([
       {id:1,
       question: "What planet is known as the red planet",
@@ -27,13 +28,13 @@ function App() {
       },
       {id:5,
        question: "What is the speed of light ?",
-       options: ["299,792km/s", "150,000km/s, 400,000km/s", "200,000km/s"],
+       options: ["299,792km/s", "150,000km/s", "400,000km/s", "200,000km/s"],
        answer: "299,792km/s"
       },
       {id:6,
         question:"What is the largest ocean in the world ?",
         options: ["Atlantic Ocean", "Indian Ocean", "Artic Ocean", "Pacific Ocean"],
-        answer: "Mars"
+        answer: "Pacific Ocean"
       },
       {id:7,
         question:"What is the capital of France ?",
@@ -48,8 +49,11 @@ function App() {
   };
 
   return (
-    <div>
+    <div className={darkmode ? "dark":""}>
+    <div className='min-h-screen w-full flex flex-col justify-between min-h-[400px] items-center justify-center bg-gray-100 dark:bg-gray-900 transition-colors duration-300 rounded-2xl'>
+      <button className='p-2 m-4 bg-gray-800 text-white rounded' onClick={()=>setDarkmode(!darkmode)}>Toggle Dark Mode</button>
         <Quizzes quizzes={quizzes} onShuffle = {quizGenerator}/>
+    </div>
     </div>
   )
 }
