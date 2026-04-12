@@ -63,7 +63,7 @@ const Quizzes = ({quizzes, onShuffle}) => {
     ></div>
   </div>
 </div>
-            <Question question={quizzes[currentIndex]} onAnswer ={handleAnswer} selectedAnswer={answers[currentIndex]}/>
+        <Question question={quizzes[currentIndex]} onAnswer ={handleAnswer} selectedAnswer={answers[currentIndex]}/>
         <div className='space-x-2 space-y-4 mt-6 justify-between'>
         <button className="flex-1 px-4 py-2 bg-gray-300 rounded-lg"  disabled = {currentIndex === 0} onClick={()=>decrement()}>Prev</button>
         {currentIndex < quizzes.length - 1 && 

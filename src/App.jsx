@@ -68,13 +68,13 @@ function App() {
         </button>
       </div>
 
-      {/* 🔹 Main Content */}
+      
       <div className="flex-1 flex items-center justify-center p-4">
         <Quizzes quizzes={quizzes} onShuffle={quizGenerator} />
       </div>
 
     </div>
-    
+
   </div>
     // <div className={darkmode ? "dark":""}>
     // <div className='min-h-screen w-full flex flex-col justify-between min-h-[400px] items-center justify-center bg-gray-100 dark:bg-gray-900 transition-colors duration-300 rounded-2xl'>
