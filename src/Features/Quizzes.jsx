@@ -49,6 +49,20 @@ const Quizzes = ({quizzes, onShuffle}) => {
     return (
      <div className='min-h-screen bg-gray-100 flex items-center justify-center p-4'> 
     <div className='w-full max-w-xl flex-1 md:max-w-xl bg-white shadow-lg rounded-2xl p-4 md:p-6'>
+    <div className="mb-4">
+  <p className="text-sm mb-1">
+    Question {currentIndex + 1} of {quizzes.length}
+  </p>
+
+  <div className="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-2">
+    <div
+      className="bg-blue-500 h-2 rounded-full transition-all duration-300"
+      style={{
+        width: `${((currentIndex + 1) / quizzes.length) * 100}%`,
+      }}
+    ></div>
+  </div>
+</div>
             <Question question={quizzes[currentIndex]} onAnswer ={handleAnswer} selectedAnswer={answers[currentIndex]}/>
         <div className='space-x-2 space-y-4 mt-6 justify-between'>
         <button className="flex-1 px-4 py-2 bg-gray-300 rounded-lg"  disabled = {currentIndex === 0} onClick={()=>decrement()}>Prev</button>

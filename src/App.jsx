@@ -48,14 +48,50 @@ function App() {
       setQuizzes(shuffled.slice(0, numQuestions));
   };
 
+  
+
   return (
-    <div className={darkmode ? "dark":""}>
-    <div className='min-h-screen w-full flex flex-col justify-between min-h-[400px] items-center justify-center bg-gray-100 dark:bg-gray-900 transition-colors duration-300 rounded-2xl'>
-      <button className='p-2 m-4 bg-gray-800 text-white rounded' onClick={()=>setDarkmode(!darkmode)}>Toggle Dark Mode</button>
-        <Quizzes quizzes={quizzes} onShuffle = {quizGenerator}/>
+    <div className={darkmode ? "dark" : ""}>
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 flex flex-col transition-colors duration-300">
+
+      {/* 🔹 Navbar */}
+      <div className="bg-white dark:bg-gray-800 shadow-md px-6 py-3 flex justify-between items-center">
+        <h1 className="text-lg md:text-xl font-bold text-gray-800 dark:text-white">
+          Quiz App
+        </h1>
+
+        <button
+          onClick={() => setDarkmode(!darkmode)}
+          className="bg-gray-800 text-white px-3 py-1 rounded"
+        >
+          🌙
+        </button>
+      </div>
+
+      {/* 🔹 Main Content */}
+      <div className="flex-1 flex items-center justify-center p-4">
+        <Quizzes quizzes={quizzes} onShuffle={quizGenerator} />
+      </div>
+
     </div>
-    </div>
+    
+  </div>
+    // <div className={darkmode ? "dark":""}>
+    // <div className='min-h-screen w-full flex flex-col justify-between min-h-[400px] items-center justify-center bg-gray-100 dark:bg-gray-900 transition-colors duration-300 rounded-2xl'>
+    //  <div className='bg-white dark:bg-gray-800 shadow-md px-6 py-3 flex justify-between items-center'>
+    //  <h1 className="text-lg md:text-xl font-bold text-gray-800 dark:text-white">
+    //       Quiz App
+    //     </h1>
+    //   <button className='p-2 m-4 bg-gray-800 text-white rounded' onClick={()=>setDarkmode(!darkmode)}>Toggle Dark Mode</button>
+    //   </div>
+    //   <div className="flex-1 flex items-center justify-center p-4">
+    //     <Quizzes quizzes={quizzes} onShuffle={quizGenerator} />
+    //   </div>
+    // </div>
+    // </div>
   )
 }
 
 export default App
+
+
