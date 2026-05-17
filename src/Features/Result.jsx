@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Result = ({quizzes, answers}) => {
+const Result = ({quizzes, answers, restartQuiz}) => {
   let score = 0;
   quizzes.forEach((question, index)=>{
       if(answers[index] === question.answer){
@@ -31,7 +31,14 @@ const Result = ({quizzes, answers}) => {
         )
         )}
         </div>
+        <button
+  onClick={restartQuiz}
+  className="mt-6 w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition"
+>
+  Restart Quiz
+</button>
     </div>
+    
     </div>
   )
 }

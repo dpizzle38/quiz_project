@@ -26,9 +26,16 @@ const Quizzes = ({quizzes, onShuffle}) => {
         setScreen("result")
     }
 
+    const restartQuiz = () => {
+      setAnswers([]);
+      setCurrentIndex(0);
+      setScreen("start");
+      onShuffle();
+    };
 
     if(screen === "result"){
-        return <Result quizzes={quizzes} answers={answers}/>    
+        return <Result quizzes={quizzes} answers={answers} onShuffle={onShuffle}
+        restartQuiz={restartQuiz}/>    
         
     }
 
@@ -111,7 +118,7 @@ const Quizzes = ({quizzes, onShuffle}) => {
         <div className='mt-6 flex justify-center gap-4'>
           <button disabled={currentIndex === 0} onClick={decrement} className='bg-gray-300 rounded-lg px-4 py-2 disabled:opacity-50'>Prev</button>
           {currentIndex < quizzes.length-1 && <button className="px-4 py-2 bg-blue-500 text-white rounded-lg disabled:opacity-50" onClick={increment} disabled={answers[currentIndex]=== undefined}  >Next</button>}
-          {currentIndex === quizzes.length-1 &&<button className='px-4 py-2 bg-green-500 text-white rounded-lg disabled:opacity-50' onClick={()=> setScreen('result')} disabled={answers[currentIndex] === undefined}>Submit</button>}
+          {currentIndex === quizzes.length-1 &&<button className='px-4 py-2 bg-green-500 text-white rounded-lg disabled:opacity-50' onClick={()=> setScreen('result')} disabled={answers[currentIndex] === undefined} >Submit</button>}
         </div>
     </div>
 

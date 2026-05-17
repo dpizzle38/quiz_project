@@ -64,7 +64,7 @@ function App() {
           onClick={() => setDarkmode(!darkmode)}
           className="bg-gray-800 text-white px-3 py-1 rounded"
         >
-          🌙
+          Dark Mode🌙
         </button>
       </div>
 
